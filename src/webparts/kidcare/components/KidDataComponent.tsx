@@ -495,7 +495,7 @@ export default class QuickFilteringGrid extends React.Component<{}, State> {
       ];
   
       return (
-        <div style={{ width: "100%", maxWidth: "90%", marginLeft: "0" }}>
+        <div style={{ width: "100%", maxWidth: "100%", marginLeft: "0" }}>
           <div>
             <div>
               {this.state.UploadModal && (
