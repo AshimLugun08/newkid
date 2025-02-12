@@ -1,0 +1,149 @@
+@import "~@fluentui/react/dist/sass/References.scss";
+
+.kidDetailContainer {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  position: relative !important;
+  left: 0 !important;
+  height: 100%;
+  overflow: hidden;
+
+  :global {
+    // SharePoint specific overrides
+    [data-sp-fre-id] {
+      left: 0 !important;
+      margin: 0 !important;
+    }
+
+    .CanvasZone {
+      padding: 0 !important;
+      margin: 0 !important;
+      width: 100% !important;
+      left: 0 !important;
+
+      &.row {
+        margin: 0 !important;
+      }
+    }
+
+    .CanvasSection {
+      padding: 0 !important;
+      margin: 0 !important;
+      width: 100% !important;
+      left: 0 !important;
+
+      &.CanvasSection-col {
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+    }
+
+    .CanvasZoneContainer {
+      max-width: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    // Override SharePoint's canvas spacing
+    div[data-sp-fre-id^="sp-fre-canvas"] {
+      left: 0 !important;
+      margin: 0 !important;
+      padding: 0 !important;
+
+      &[data-offset-left],
+      &[data-offset-top] {
+        transform: none !important;
+      }
+    }
+
+    [data-automation-id="CanvasZone"] {
+      margin: 0 !important;
+      padding: 0 !important;
+      left: 0 !important;
+    }
+
+    .TableMain {
+      width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      box-sizing: border-box !important;
+      position: relative !important;
+      left: 0 !important;
+    }
+
+    // Bootstrap grid overrides
+    .container-fluid {
+      padding: 15px;
+      height: 100%;
+    }
+
+    .row {
+      margin: 0;
+      height: 100%;
+    }
+
+    // 2/3 and 1/3 column layout
+    .col-sm-8,
+    .col-sm-4 {
+      padding: 2px;
+      height: 100%;
+    }
+
+    // Material UI overrides
+    .MuiDataGrid-root {
+      font-size: 12px !important;
+    }
+
+    // Quill editor overrides
+    .ql-toolbar {
+      display: block !important;
+      position: absolute !important;
+      margin-top: 50px !important;
+      animation: none !important;
+      transition: none !important;
+    }
+
+    .quill {
+      margin-top: 83px !important;
+    }
+  }
+}
+
+// Wrapper styles for content panels
+.tableWrapper {
+  background: #fff;
+  height: 100%;
+  overflow-y: auto;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  padding: 15px;
+}
+
+.appointmentWrapper {
+  background: #fff;
+  height: 100%;
+  overflow-y: auto;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  padding: 15px;
+}
+
+// Media query for responsive layout
+@media (max-width: 768px) {
+  .kidDetailContainer {
+    :global {
+      .col-sm-8,
+      .col-sm-4 {
+        width: 100%;
+        margin-bottom: 15px;
+      }
+    }
+  }
+}
+.container-fluid, .row {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}

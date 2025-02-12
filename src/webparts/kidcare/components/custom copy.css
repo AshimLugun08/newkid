@@ -1,0 +1,35 @@
+.MainDivCon {
+  background: #d9d9d9c2;
+  border: 2px solid #fff;
+  height: 778px;
+  width: 400px !important;
+  border-radius: 7px;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  overflow-y: auto; /* Enable vertical scrolling when content overflows vertically */
+}
+
+.ListKidName {
+  text-wrap: nowrap !important;
+}
+
+.css-10hburv-MuiTypography-root {
+  font-size: 14px !important;
+}
+
+.css-83ijpv-MuiTypography-root {
+  font-size: 13px !important;
+}
+
+.css-yb0lig {
+  font-size: 14px !important;
+}
+
+.css-mbfek {
+  font-size: 13px !important;
+}
+
+.css-zrqpq1 {
+  font-size: 14px !important;
+}
+
+

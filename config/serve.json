@@ -1,0 +1,6 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/spfx-serve.schema.json",
+  "port": 4321,
+  "https": true,
+  "initialPage": "https://366pidev.sharepoint.com/sites/Ashim_Team_Site/_layouts/15/workbench.aspx"
+}
