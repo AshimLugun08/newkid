@@ -209,15 +209,24 @@ export default class QuickFilteringGrid extends React.Component<{}, State> {
   FetchAllFlip = async () => {
     try {
       let userName = await this.GetUserName();
-      let isDoctor = await this.checkIfCurrentUserDoctor(userName);
+
+      let isDoctor: boolean;
+      try {
+        isDoctor = Boolean(await this.checkIfCurrentUserDoctor(userName));
+      } catch (error) {
+        console.error("Error checking if user is doctor:", error);
+        isDoctor = false; // Default to false if the check fails
+      }
 
       let apiUrlDoctor = `${baseAPI()}/getfliplistforcareteam?id=${userName}`;
-      let apiUrlCarePartner = `${baseAPI()}/getfliplistforcareteam?id=${"Care_Partner"}`;
+      let apiUrlCarePartner = `${baseAPI()}/getfliplistforcareteam?id=Care_Partner`;
 
       let allFlipData: any[] = [];
+      console.log("flip from 3");
 
       if (isDoctor) {
         const response = await axios.get(apiUrlDoctor);
+        console.log("flip from 2");
         allFlipData = [...response.data.data];
       } else {
         userName = "Ila.Binaykia@healthpointranchi.com";
@@ -228,24 +237,30 @@ export default class QuickFilteringGrid extends React.Component<{}, State> {
         allFlipData = [...response.data.data, ...response2.data.data];
       }
 
+      console.log("flip from 4");
       const unreadFlips = allFlipData.filter(
         (flip: { read_flag: string }) => flip.read_flag.toLowerCase() === "false"
       );
 
+      console.log("flip from");
+      console.log(unreadFlips);
+
       this.setState({ UnreadFlips: unreadFlips.length || 0 });
     } catch (error) {
       console.error("Error fetching data:", error);
+      console.log("fetch nhi ho raha data");
       throw error;
     }
   };
+
+
 
   formatDateOfBirth = (dateOfBirth: string | undefined | null) => {
     if (!dateOfBirth) return "not found dob";
    
     
     try {
-      console.log("found dob")
-      console.log("dob",dateOfBirth)
+    
       const parts = dateOfBirth.split(" ")[0].split("/");
       if (parts.length !== 3) return dateOfBirth;
       
@@ -390,8 +405,7 @@ export default class QuickFilteringGrid extends React.Component<{}, State> {
         headerName: "Date Of Birth",
         width: 100,
         valueGetter: (params: any) => {
-          console.log("dob");
-          console.log(params)
+         
           if (!params) return "not found dob";
           return this.formatDateOfBirth(params);
         }
